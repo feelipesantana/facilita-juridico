@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
 import { getClients } from "../../api/getClients";
+import { Button } from "../ui/button";
 
 export function TableClients() {
     const { data } = useQuery({
@@ -17,7 +18,7 @@ export function TableClients() {
                     <TableHead >Nome</TableHead>
                     <TableHead>Email</TableHead>
                     <TableHead>Telefone</TableHead>
-
+                    <TableHead>Calcular Rota</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -28,6 +29,8 @@ export function TableClients() {
                             <TableCell >{res.name}</TableCell>
                             <TableCell >{res.email}</TableCell>
                             <TableCell >{res.phone}</TableCell>
+
+                            <TableCell ><Button>Calcular</Button></TableCell>
                         </TableRow>
                     )
                 })}
