@@ -1,8 +1,13 @@
+import cors from "@fastify/cors";
 import Fastify, { FastifyReply, FastifyRequest } from "fastify";
-
 import { appRoutes } from "./http/routes";
 
 const app = Fastify();
+
+app.register(cors, {
+	origin: "*",
+	methods: ["GET", "PUT", "POST", "DELETE"],
+});
 
 app.register(appRoutes);
 
