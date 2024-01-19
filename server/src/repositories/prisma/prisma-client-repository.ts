@@ -27,4 +27,13 @@ export class PrismaClientRepository implements ClientRepository {
 
 		return getAllClients;
 	}
+	async findByEmail(email: string): Promise<Clients | null> {
+		const getClient = prisma.clients.findFirst({
+			where: {
+				email,
+			},
+		});
+
+		return getClient;
+	}
 }

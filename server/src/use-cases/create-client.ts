@@ -11,7 +11,6 @@ interface CreateClientRequest {
 type CreateClientResponse = Clients;
 export class CreateClientUseCase {
 	constructor(private clientRepository: ClientRepository) {}
-
 	async execute({
 		name,
 		email,
@@ -19,6 +18,11 @@ export class CreateClientUseCase {
 		coordX,
 		coordY,
 	}: CreateClientRequest): Promise<CreateClientResponse> {
+		const verifyClient = await this.clientRepository.findByEmail(email);
+
+		if (verifyClient) {
+			throw new Error("User Exists Yet!");
+		}
 		const createUser = await this.clientRepository.create({
 			name,
 			email,
@@ -26,7 +30,6 @@ export class CreateClientUseCase {
 			coordX,
 			coordY,
 		});
-		console.log(name);
 
 		if (!createUser) {
 			throw new Error("Error to create a client!");
