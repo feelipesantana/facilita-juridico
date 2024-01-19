@@ -1,13 +1,28 @@
 import { useQuery } from "@tanstack/react-query";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
-import { getClients } from "../../api/getClients";
+import { getClients } from "../../api/get-clients.ts";
 import { Button } from "../ui/button";
+import { calculateDistance } from "../../api/calculate-distance.ts";
+import { useToast } from "../ui/use-toast.ts";
 
 export function TableClients() {
+    const { toast } = useToast()
     const { data } = useQuery({
         queryKey: ['api-clients'],
         queryFn: getClients
     })
+
+    async function handleDistance(email: string, name: string) {
+        try {
+            const dist = await calculateDistance(email)
+            toast({
+                title: "Distancia",
+                description: `A distancia do cliente ${name} é de ${dist.distance}`
+            })
+        } catch (err) {
+            console.error(err)
+        }
+    }
 
     console.log(data)
     return (
@@ -29,8 +44,7 @@ export function TableClients() {
                             <TableCell >{res.name}</TableCell>
                             <TableCell >{res.email}</TableCell>
                             <TableCell >{res.phone}</TableCell>
-
-                            <TableCell ><Button>Calcular</Button></TableCell>
+                            <TableCell ><Button onClick={() => handleDistance(res.email, res.name)}>Calcular</Button></TableCell>
                         </TableRow>
                     )
                 })}

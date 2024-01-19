@@ -1,13 +1,12 @@
 import { useQueryClient } from "@tanstack/react-query";
-import { registerClient } from "../../api/registerClient";
+import { registerClient } from "../../api/register-client";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { useForm } from 'react-hook-form'
-
-import z, { infer } from 'zod'
-import { toast, useToast } from "../ui/use-toast";
+import z from 'zod'
+import { useToast } from "../ui/use-toast";
 import { Toaster } from "../ui/toaster";
 
 const createSchema = z.object({
