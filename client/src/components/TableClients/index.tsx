@@ -1,24 +1,37 @@
+import { useQuery } from "@tanstack/react-query";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
+import { getClients } from "../../api/getClients";
 
 export function TableClients() {
+    const { data } = useQuery({
+        queryKey: ['api-clients'],
+        queryFn: getClients
+    })
+
+    console.log(data)
     return (
-        <Table>
+        <Table className="w-[50%] mx-auto text-base rounded-md bg-slate-200 dark:bg-slate-600">
             <TableCaption>A list of your recent invoices.</TableCaption>
             <TableHeader>
                 <TableRow>
-                    <TableHead className="w-[100px]">Invoice</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Method</TableHead>
-                    <TableHead className="text-right">Amount</TableHead>
+                    <TableHead >Nome</TableHead>
+                    <TableHead>Email</TableHead>
+                    <TableHead>Telefone</TableHead>
+
                 </TableRow>
             </TableHeader>
             <TableBody>
-                <TableRow>
-                    <TableCell className="font-medium">INV001</TableCell>
-                    <TableCell>Paid</TableCell>
-                    <TableCell>Credit Card</TableCell>
-                    <TableCell className="text-right">$250.00</TableCell>
-                </TableRow>
+
+                {data?.map(res => {
+                    return (
+                        <TableRow key={res.id}>
+                            <TableCell >{res.name}</TableCell>
+                            <TableCell >{res.email}</TableCell>
+                            <TableCell >{res.phone}</TableCell>
+                        </TableRow>
+                    )
+                })}
+
             </TableBody>
         </Table>
     )
