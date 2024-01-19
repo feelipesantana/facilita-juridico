@@ -1,0 +1,21 @@
+# POST http://127.0.0.1:3333/register
+# content-type: application/json
+
+# {
+#     "name": "Felipe Santana",
+#     "email": "felipe.jesus0801@gmail.com",
+#     "phone":"+5511958095152",
+#     "coordX":10,
+#     "coordY":15
+# }
+
+GET http://127.0.0.1:3333/clients
+content-type: application/json
+
+# {
+#     "name": "Felipe Santana",
+#     "email": "felipe.jesus0801@gmail.com",
+#     "phone":"+5511958095152",
+#     "coordX":10,
+#     "coordY":15
+# }

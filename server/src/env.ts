@@ -1,9 +1,5 @@
-import zod, { z } from "zod";
+import dotenv from "dotenv";
+import z from "zod";
+dotenv.config();
 
-const envSchema = z.object({
-	POSTGRESQL_USER: z.string(),
-	POSTGRESQL_PASS: z.string(),
-	POSTGRESQL_DB: z.string(),
-});
-
-export const env = envSchema.parse(process.env);
+export const envSchema = z.object({});
