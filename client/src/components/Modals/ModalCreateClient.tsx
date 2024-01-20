@@ -32,6 +32,8 @@ export function ModalCreateClient() {
 
             if (result) {
                 queryClient.invalidateQueries({ queryKey: ['api-clients'] })
+                queryClient.invalidateQueries({ queryKey: ['route'] })
+
                 toast({
                     title: "Registro",
                     description: "Cliente cadastrado com sucesso!"

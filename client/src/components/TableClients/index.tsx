@@ -27,7 +27,6 @@ export function TableClients() {
     console.log(data)
     return (
         <Table className="w-[50%] mx-auto text-base rounded-md bg-slate-200 dark:bg-slate-600">
-            <TableCaption>A list of your recent invoices.</TableCaption>
             <TableHeader>
                 <TableRow>
                     <TableHead >Nome</TableHead>
@@ -48,7 +47,6 @@ export function TableClients() {
                         </TableRow>
                     )
                 })}
-
             </TableBody>
         </Table>
     )
