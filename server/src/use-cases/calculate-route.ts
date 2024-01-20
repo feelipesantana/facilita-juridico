@@ -16,7 +16,7 @@ export class CalculateRouteUseCase {
 		const clients = await this.prismaClientRepository.findAll();
 
 		const points: Point[] = [
-			{ x: 0, y: 0, id: 0, name: "company", id_client: "01" },
+			{ x: 0, y: 0, id: 0, name: "Empresa", id_client: "01" },
 			...clients.map((client, index) => ({
 				x: client.coordX,
 				y: client.coordY,
@@ -28,6 +28,7 @@ export class CalculateRouteUseCase {
 		console.log(points);
 
 		const route: Point[] = [points[0]];
+		const totalDistance = 0;
 
 		while (route.length < points.length) {
 			let minDistance = Infinity;
