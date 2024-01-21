@@ -9,8 +9,8 @@ import { Toaster } from "./components/ui/toaster"
 function App() {
 
   return (
-    <main className=' p-10  h-screen w-screen'>
-      <header className="flex justify-between items-center border-b h-20 mb-20">
+    <main className='mb-10 '>
+      <header className="flex justify-between items-center border-b h-20 mb-20 p-10 ">
         <h1 className=" font-bold text-3xl ">Facilita Jurídico</h1>
         <div className="flex gap-4 items-center">
           <div className="flex gap-3 text-zinc-500 dark:text-white">

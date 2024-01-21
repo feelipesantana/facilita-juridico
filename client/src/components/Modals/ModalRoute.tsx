@@ -25,8 +25,9 @@ export function ModalRoute() {
 
                         return (
                             <div className="flex items-center gap-2 justify-start ">
-                                <div key={res.id} className="bg-slate-200 rounded-lg p-2  w-32 flex text-nowrap dark:bg-slate-600 ">
+                                <div key={res.id} className="bg-slate-200 rounded-lg p-3 min-w-32 flex flex-col justify-center items-center text-nowrap dark:bg-slate-600 ">
                                     <span className="flex no-wrap">{res.name}</span>
+                                    <span className="flex no-wrap text-pink-700 dark:text-pink-300">({res.x},{res.y})</span>
                                 </div>
                                 {data.length - 1 !== _index && <ArrowRight className="min-h-4 min-w-4" />}
                             </div>
