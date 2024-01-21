@@ -86,7 +86,7 @@ npm run dev
 (Frontend)
 Pasta - /client
 
-.env (Configurar chamada do Banco)
+.env (Configurar chamada do backend)
 VITE_BASE_URL=http://127.0.0.1:3333
 
 npm i
