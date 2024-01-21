@@ -1,5 +1,4 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { useMemo } from "react";
 import { Button } from "../ui/button";
 import { toast } from "../ui/use-toast";
 import { calculateDistance } from "../../api/calculate-distance";
